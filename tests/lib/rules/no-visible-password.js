@@ -1,5 +1,5 @@
 /**
- * @fileoverview Make sure the tool contains the config.xml file
+ * @fileoverview Passwords must be hidden from view
  * @author Mark Button
  */
 "use strict";
@@ -8,7 +8,7 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-const rule = require("../../../lib/rules/contains-config");
+const rule = require("../../../lib/rules/no-visible-password");
 
 const RuleTester = require("eslint").RuleTester;
 
@@ -26,21 +26,20 @@ RuleTester.setDefaultConfig({
 // Tests
 //------------------------------------------------------------------------------
 
-const ruleTester = new RuleTester();
-ruleTester.run("contains-config", rule, {
+var ruleTester = new RuleTester();
+ruleTester.run("no-visible-password", rule, {
 
   valid: [
-    // give me some code that won't trigger a warning
     {
-      code: "<MetaInfo><Name>test</Name><Description>test</Description><ToolVersion>4</ToolVersion><CategoryName>Connectors</CategoryName><Author>Alteryx Products</Author><Icon>SalesforceInputIcon.png</Icon></MetaInfo>",
+      code: "<ayx aria-label='password-textbox' data-ui-props='{type:\"TextBox\", widgetId:\"password\"}' data-item-props='{dataName:\"password\", dataType:\"SimpleString\", password:true, encryptionMode:\"machine\"}'></ayx>",
     }
   ],
 
   invalid: [
     {
-      code: "<MetaInfo></MetaInfo>",
+      code: "<ayx aria-label='password-textbox' data-ui-props='{type:\"TextBox\", widgetId:\"password\"}' data-item-props='{dataName:\"password\", dataType:\"SimpleString\"}'></ayx>",
       errors: [{
-        message: "All projects must contain a properly formatted Config.xml",
+        message: "Password field must be type password.",
         type: "JSXOpeningElement"
       }]
     }
