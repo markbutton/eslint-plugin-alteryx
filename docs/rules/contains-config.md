@@ -11,7 +11,14 @@ Examples of **incorrect** code for this rule:
 
 ```js
 
-configuration.xml
+<MetaInfo>
+  <Name>test</Name>
+  <Description>test</Description>
+  <ToolVersion>4</ToolVersion>
+  <CategoryName>Connectors</CategoryName>
+  <Author>Alteryx Products</Author>
+  <Icon>SalesforceInputIcon.png</Icon>
+</MetaInfo>
 
 ```
 
@@ -19,7 +26,7 @@ Examples of **correct** code for this rule:
 
 ```js
 
-config.xml
+<MetaInfo></MetaInfo>
 
 ```
 
