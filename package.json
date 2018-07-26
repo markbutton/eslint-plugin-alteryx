@@ -1,13 +1,14 @@
 {
   "name": "eslint-plugin-alteryx",
-  "version": "0.0.0",
-  "description": "A plugin for custom alteryx rules.",
+  "version": "1.0.0",
+  "description": "An ESLint plugin for custom alteryx rules.",
   "keywords": [
     "eslint",
     "eslintplugin",
-    "eslint-plugin"
+    "eslint-plugin",
+    "alteryx"
   ],
-  "author": "Mark",
+  "author": "Mark Button",
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha tests --recursive"
